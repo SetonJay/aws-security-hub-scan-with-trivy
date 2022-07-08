@@ -17,6 +17,7 @@ phases:
     commands:
       - trivy i -f json -o results.json --exit-code 0 --severity HIGH,MEDIUM,LOW --quiet --auto-refresh $docker_img_name:$docker_tag
       - trivy i -f json -o results.json --exit-code 1 --severity HIGH,CRITICAL --quiet --auto-refresh $docker_img_name:$docker_tag
+      - pwd
       - docker tag $docker_img_name:$docker_tag $ecr_repo:latest
       - docker push $ecr_repo:latest
   post_build:
