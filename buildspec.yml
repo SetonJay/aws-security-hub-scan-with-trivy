@@ -11,7 +11,7 @@ phases:
       - "curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin"
   pre_build:
     commands:
-      - "$(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)"
+      - "aws ecr get-login-password | docker login --username AWS --password-stdin $REPOSITORY_URI"
       - "docker build -t $docker_img_name:$docker_tag ."
   build:
     commands:
