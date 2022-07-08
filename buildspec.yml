@@ -8,8 +8,7 @@ phases:
       - "apt update"
       - "apt install rpm -y"
       - "pip3 install boto3"
-      - "wget https://github.com/aquasecurity/trivy/releases/download/v0.1.6/trivy_0.1.6_Linux-64bit.deb"
-      - "dpkg -i trivy_0.1.6_Linux-64bit.deb"
+      - "curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin"
   pre_build:
     commands:
       - "$(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)"
