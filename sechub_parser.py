@@ -32,15 +32,20 @@ codebuildBuildArn = os.environ['CODEBUILD_BUILD_ARN']
 containerName = os.environ['docker_img_name']
 containerTag = os.environ['docker_tag']
 
+#Results = (list(data.keys())[4])
+#ResultValues = (data.get(Results))
+#if (ResultValues[0]['Vulnerabilities']) is None:
+#    print('No vulnerabilities')
+#else:
+#    for p in ResultValues[0]['Vulnerabilities']:
+        
 # open Trivy vuln report & parse out vuln info
 with open('results.json') as json_file:
     data = json.load(json_file)
-Results = (list(data.keys())[4])
-ResultValues = (data.get(Results))
-if (ResultValues[0]['Vulnerabilities']) is None:
-    print('No vulnerabilities')
-else:
-    for p in ResultValues[0]['Vulnerabilities']:
+    if data['Results'][0]['Vulnerabilities'] is None:
+        print('No vulnerabilities')
+    else:
+        for p in data['Results'][0]['Vulnerabilities']:
         cveId = str(p['VulnerabilityID'])
         cveTitle = str(p['Title'])
         cveDescription = str(p['Description'])
