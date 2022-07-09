@@ -8,9 +8,7 @@ phases:
       - "apt update"
       - "apt install rpm -y"
       - "pip3 install boto3"
-      #- "curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin"
-      - "wget https://github.com/aquasecurity/trivy/releases/download/v0.1.6/trivy_0.1.6_Linux-64bit.deb"
-      - "dpkg -i trivy_0.1.6_Linux-64bit.deb"
+      - "curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin"
   pre_build:
     commands:
       - aws ecr get-login-password | docker login --username AWS --password-stdin 377877851685.dkr.ecr.eu-west-1.amazonaws.com
