@@ -38,7 +38,7 @@ with open('results.json') as json_file:
     if data['Results'][0]['Vulnerabilities'] is None:
         print('No vulnerabilities')
     else:
-        for p in data[0]['Vulnerabilities']:
+        for p in data['Results'][0]['Vulnerabilities']:
             cveId = str(p['VulnerabilityID'])
             cveTitle = str(p['Title'])
             cveDescription = str(p['Description'])
