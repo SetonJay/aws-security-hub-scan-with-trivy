@@ -36,9 +36,4 @@ phases:
       
 artifacts:
   files:
-    - '**.*'
-  secondary-artifacts:
-    detectsecrets:
-      files:
-          - results.json
-          - truffletest.html
+    - truffletest.html
