@@ -16,7 +16,9 @@ phases:
   pre_build:
     commands:
       - echo scan repo for secrets
-      - trufflehog3 -f html -o $CODEBUILD_SRC_DIR/truffletest.html
+      - pwd
+      - ls -la
+      - trufflehog3 -no-history -f html -o $CODEBUILD_SRC_DIR/truffletest.html
       - aws ecr get-login-password | docker login --username AWS --password-stdin 377877851685.dkr.ecr.eu-west-1.amazonaws.com
       - docker build -t $docker_img_name:$docker_tag .
   build:
