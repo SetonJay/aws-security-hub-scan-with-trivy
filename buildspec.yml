@@ -27,8 +27,8 @@ phases:
   post_build:
     commands:
       - echo trivy scan completed on `date`
-      - python3 sechub_parser.py
-      - echo Report Sent to Security Hub on `date`
+      #- python3 sechub_parser.py
+      #- echo Report Sent to Security Hub on `date`
       
 artifacts:
   files:
