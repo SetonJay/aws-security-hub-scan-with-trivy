@@ -38,3 +38,9 @@ phases:
 #artifacts:
   #files:
     #- truffletest.html
+artifacts:
+  files:
+  secondary-artifacts:
+    container_scan_artifacts:
+      files:
+        - truffletest.html
